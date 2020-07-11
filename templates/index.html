@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Leaflet CSS -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+ integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+ crossorigin=""/>
+
+ <!-- Our CSS -->
+ <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Members of Congress </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Members of Congress<br> in Georgia</h1>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="well">
+          <h5>Representative</h5>
+          <select class="ui dropdown" id="selDataset" ></select>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Information</h3>
+                <!-- <h4></h4> {{data}} </h4>  -->
+                 <!-- <script type="text/javascript">
+                 var temp = '{{data1}}'
+                 console.log('{{data1}}')
+                 </script>  -->
+            </div>
+           <div id="basic-info" class="panel-body"></div>
+         
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div id="rep-info"></div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12" style="height:574px;">
+        <div id="map-cont"></div>
+      </div>
+    </div>
+ </div>
+
+ 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+  <!-- d3 JavaScript -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- Leaflet-Choropleth JavaScript -->
+  <script type="text/javascript" src="../static/js/choropleth.js"></script>
+
+   <!-- Our JS -->
+   <script type="text/javascript" src="../static/js/config.js"></script>
+  <script src="../static/js/app.js"></script>
+  <!-- <script type="text/javascript">{{data}}</script> -->
+  <!-- <script src="../static/js/bonus.js"></script> -->
+  <!-- <script src="samples.json"></script> -->
+  
+</body>
+
+</html>
