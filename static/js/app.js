@@ -77,7 +77,7 @@ function make_init(data){
   }
  // console.log(dist);
 
-  /// This part crteates the information box
+  /// This part creates the information box
   var html_code = "<h4> Total Representatives: 16 </h4>" +
   "<br>" + "<h4> Senate : 2 </h4> " +
   "<br>" + "<h4> House : 14 </h4> ";
@@ -165,6 +165,63 @@ function remove_layers(){
  dst2.remove();dst3.remove();dst4.remove();dst5.remove();dst6.remove();dst7.remove();dst8.remove();
  dst9.remove();dst10.remove();dst11.remove();dst12.remove();dst13.remove();dst14.remove();
 }
+
+//MAKING THE GRAPHS
+
+/////////////////////////////////////////////
+///DECLARING THESE VARIABLE IS WRONG SOMEHOW
+/////////////////////////////////////////////
+var member_id;
+var subjects = [];
+var unique = {};
+function donutGraph(district){
+
+  d3.json(rep_url, function(data){
+    for(i=2;i<16;i++){
+      if (data[i][8]==district){
+        member_id = data[i][2];        
+      }
+    }
+    
+  });
+
+  d3.json(sponsored_url, function(data){
+    for(i=0;i<data.length;i++){
+      if((data[i][6]==member_id) & (data[i][20]=="introduced")){
+        subjects.push(data[i][8]);
+      }
+    }
+  });
+  for(i=0;i<subjects.length;i++){
+    unique[subjects[i]] = 1+(unique[subjects[i]] || 0); 
+    
+  }
+  //CREATE DOUGHNUT
+var chartData = [];
+for(item in unique){
+
+  chartData.push({"y":unique[item], "label":item});
+}
+  var chart = new CanvasJS.Chart("rep-info", {
+    animationEnabled: true,
+    title:{
+      text: "Sponsored Bill Categories",
+      horizontalAlign: "left"
+    },
+    data: [{
+      type: "doughnut",
+      startAngle: 60,
+      //innerRadius: 60,
+      indexLabelFontSize: 17,
+      indexLabel: "{label} - #percent%",
+      toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+      dataPoints: chartData
+    }]
+  });
+  chart.render();
+    
+}
+
 ////////////////////////////////////
 //read user input and update plots//
 //all updtaes should be done inside this function
@@ -177,12 +234,14 @@ function read_userinput(){
 
   //first clesr th default plot
   d3.selectAll("#rep-info > *").remove();
-  document.getElementById("rep-info").innerHTML= "<h4>" + "You selected " + temp + " add the plot/plots in this area" + "</h4>";
+  // document.getElementById("rep-info").innerHTML= "<h4>" + "You selected " + temp + " add the plot/plots in this area" + "</h4>";
 
 
   //update district 1 map info
   if (temp == representatives[0])
   {
+    //d3.selectAll("#rep-info > *").remove();
+    donutGraph(1);
     map.setView(new L.LatLng(31.37, -82.287), 8); 
     remove_layers();
     map.addLayer(dst1);
@@ -190,6 +249,8 @@ function read_userinput(){
   }//end of if
   if (temp == representatives[1])
   {
+    //d3.selectAll("#rep-info > *").remove();
+    donutGraph(2);
     map.setView(new L.LatLng(31.95, -84.46), 8); 
     remove_layers();
     map.addLayer(dst2);

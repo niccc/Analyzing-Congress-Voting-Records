@@ -49,7 +49,7 @@ def hello2():
 
 @app.route("/sponsored")
 def hello3():   
-    return jsonify(vote_data)
+    return jsonify(sponsored_data)
 
 
 
