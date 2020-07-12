@@ -16,27 +16,41 @@ import json
 # Create a SQL connection to our SQLite database
 con = sqlite3.connect("./static/data/reps.sqlite")
 cur = con.cursor()
-cur.execute('SELECT * FROM Representative')
-data = cur.fetchall()
-#print(data[0])
+cur.execute('SELECT * FROM Representatives')
+rep_data = cur.fetchall()
 
-print(data)
+cur.execute('SELECT * FROM Votes')
+vote_data = cur.fetchall()
+
+cur.execute('SELECT * FROM Sponsored')
+sponsored_data = cur.fetchall()
+
+print(vote_data[1])
+print(rep_data[1])
+print(sponsored_data[1])
 # creates a Flask application, named app
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
     
-    return render_template('index.html', data=data)
+    return render_template('index.html', data=rep_data)
 
-@app.route("/route1")
+@app.route("/reps")
 def hello1():  
-    return jsonify(data)
+    return jsonify(rep_data)
+
 
 #use this route for the  other data
-# @app.route("/route2")
-# def hello2():   
-#     #return jsonify(somedata)
+@app.route("/votes")
+def hello2():   
+    return jsonify(vote_data)
+
+
+@app.route("/sponsored")
+def hello3():   
+    return jsonify(vote_data)
+
 
 
 # run the application on the main prompt or console
