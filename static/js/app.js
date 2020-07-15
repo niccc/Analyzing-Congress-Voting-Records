@@ -230,9 +230,11 @@ function remove_layers(){
 function spiderGraph(district){
   //console.log(district);
   var member_id;
-  var bill_ids = [];
+  //var bill_ids = [];
   var unique = {};
   var subjects = [];
+  var unique_all = {};
+  var subjects_all = [];
   
     d3.json(rep_url, function(data){
       for(i=2;i<16;i++){
@@ -248,6 +250,10 @@ function spiderGraph(district){
         if(data[i][3]==member_id && data[i][6]=="Yes"){ //&& data[i][4]=="Bill Passed"){
           subjects.push(data[i][7]);
         }
+
+        if(data[i][3]==member_id) { //&& data[i][4]=="Bill Passed"){
+          subjects_all.push(data[i][7]);
+        }
       }
 
    
@@ -255,13 +261,27 @@ function spiderGraph(district){
     for(i=0;i<subjects.length;i++){
       unique[subjects[i]] = 1+(unique[subjects[i]] || 0); 
     }
+
+    for(i=0;i<subjects_all.length;i++){
+      unique_all[subjects_all[i]] = 1+(unique_all[subjects_all[i]] || 0); 
+    }
+
 /// PLOTLY
     var r_data = [];
     var theta_data = [];
+    var r_data_all = [];
+    var theta_data_all = [];
+
     for(item in unique){
       r_data.push(unique[item]);
       theta_data.push(item);
     }
+
+    for(item in unique_all){
+      r_data_all.push(unique_all[item]);
+      theta_data_all.push(item);
+    }
+
     for (i = 0; i < theta_data.length; i++) {
       temp = theta_data[i].split(' ');
       for (j = 0; j < temp.length; j++) {
@@ -269,31 +289,52 @@ function spiderGraph(district){
       }
       theta_data[i] = temp.join(' ');
     }
+
+    for (i = 0; i < theta_data_all.length; i++) {
+      temp_all = theta_data_all[i].split(' ');
+      for (j = 0; j < temp_all.length; j++) {
+        temp_all[j] = temp_all[j] + "<br>";
+      }
+      theta_data_all[i] = temp_all.join(' ');
+    }
+   //console.log(theta_data, theta_data_all);
+  // console.log(r_data, r_data_all);
+
     data = [
       {
       type: 'scatterpolar',
       r: r_data,
       theta: theta_data,
-      fill: 'toself'
-    }]
+      fill: 'toself',
+      name:'Yes'
+    },
+    {
+    type: 'scatterpolar',
+      r: r_data_all,
+      theta: theta_data_all,
+      fill: 'toself',
+      name:'All'
+    }
+  ]
     
     layout = {
       polar: {
         radialaxis: {
           visible: true,
-          range: [0, 5]
+          range: [0, 8]
         }
       },
 
       margin: {
         t:200,
-        r:0
+        l:100
       }, 
       width:500,
       height:500,
-      showlegend: false,
+      showlegend: true,
+    
       title:{
-        text:"Bills Voted 'Yes' by Catogory",
+        text:"Bills Voted 'Yes' Vs. 'All Bills Voted' by Catogory",
         fontSize: 20,
       fontFamily: "tahoma",
       padding:20
@@ -567,7 +608,10 @@ function read_userinput(){
       animationEnabled: true,
       title:{
         text: "Sponsored Bill Categories by " + temp,
-        horizontalAlign: "left"
+        horizontalAlign: "left",
+        fontSize: 20,
+      fontFamily: "tahoma",
+      padding:20
       },
       data: [{
         type: "doughnut",
@@ -621,7 +665,10 @@ function read_userinput(){
       animationEnabled: true,
       title:{
         text: "Sponsored Bill Categories by " + temp,
-        horizontalAlign: "left"
+        horizontalAlign: "left",
+        fontSize: 20,
+      fontFamily: "tahoma",
+      padding:20
       },
       data: [{
         type: "doughnut",
