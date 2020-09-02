@@ -1,4 +1,4 @@
-# Analyzing the voting records of GA memebers of Congress
+# Analyzing the voting records of GA members of Congress
 
 Group 3 "Data Boys" starring:
 • Aaron
