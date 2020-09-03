@@ -14,3 +14,4 @@ Our project explored the voting records of Georgia's elected representatives (Se
 
 We will use Jupyter Notebook to make API calls to ProPublica to gather the voting data, store the data into an SQLite database and then display the data with Javascript via Flask. Our dataset has the voting history of Georgia's representatives, which comprises well over 100 data points. JavaScript libraries we will make use of are D3, Plotly, Canvas.js, and Leaflet.
 
+Url: https://lumindak.github.io/Project-Analyzing-voting-records/
