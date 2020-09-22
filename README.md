@@ -1,13 +1,5 @@
 # Analyzing the voting records of GA members of Congress
 
-Group 3 "Data Boys" starring:
-• Aaron
-• Angel
-• Grant
-• Luminda
-• Nic
-• Sam
-
 ## 
 
 Our project explored the voting records of Georgia's elected representatives (Senators and house members). We gathered the voting records of each representative from the current year's Congress. A map of Georgia's different congressional distracts and a web page with an interactive menu were created. When a congressional member is selected, it will display metrics such as how many bills they have passed, to what degree they vote along party lines, the category of bills they have proposed, and so on and so forth. We also displayed some general demographic data for Georgia's voting population.
