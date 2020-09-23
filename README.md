@@ -1,4 +1,5 @@
 # Analyzing the voting records of GA members of Congress
+#Nic, Luminda, Aaron, Grant, Angel, Sam
 
 ## 
 
