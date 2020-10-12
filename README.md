@@ -14,5 +14,6 @@ Our project explored the voting records of Georgia's elected representatives (Se
 ## Tasks
 1. Use Python to connect to ProPublica API and retrieve representative and voting record data.
 2. Temporarily store data in Pandas DataFrames.
+3. Utilize SQLalchemy to store data in a SQLite database.
 
 Url: https://lumindak.github.io/Project-Analyzing-voting-records/
