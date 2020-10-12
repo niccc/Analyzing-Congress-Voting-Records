@@ -17,6 +17,7 @@ Our project explored the voting records of Georgia's elected representatives (Se
 3. Utilize SQLalchemy to store data in a SQLite database.
 4. Build Flask API to access the tables in our database.
 5. Use Javascript to access our data tables via the Flask API.
+6. Create web visualizations within Javascript using D3, Plotly, and Leaflet
 
 
 
