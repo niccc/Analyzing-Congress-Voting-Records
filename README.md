@@ -16,6 +16,8 @@ Our project explored the voting records of Georgia's elected representatives (Se
 2. Temporarily store data in Pandas DataFrames.
 3. Utilize SQLalchemy to store data in a SQLite database.
 4. Build Flask API to access the tables in our database.
+5. Use Javascript to access our data tables via the Flask API.
+
 
 
 Url: https://lumindak.github.io/Project-Analyzing-voting-records/
