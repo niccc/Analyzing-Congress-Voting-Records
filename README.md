@@ -11,4 +11,7 @@ Our project explored the voting records of Georgia's elected representatives (Se
 2. How do we store our data in a way to be able to access it via javascript.
 3. How do we create dynamic visulaizations to give the user insight on representative voting.
 
+## Tasks
+
+
 Url: https://lumindak.github.io/Project-Analyzing-voting-records/
