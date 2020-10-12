@@ -12,6 +12,6 @@ Our project explored the voting records of Georgia's elected representatives (Se
 3. How do we create dynamic visulaizations to give the user insight on representative voting.
 
 ## Tasks
-
+1. Use python to connect to ProPublica API and retrieve representative and voting record data.
 
 Url: https://lumindak.github.io/Project-Analyzing-voting-records/
